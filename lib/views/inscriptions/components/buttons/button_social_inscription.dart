@@ -14,13 +14,13 @@ class _ButtonSocialInscriptionState extends State<ButtonSocialInscription> {
   @override
   Widget build(BuildContext context) {
     return Container(
-                      width: 63,
-                      height: 63,
+                      width: 70,
+                      height: 70,
                       child: TextButton(
                         child: Image(
                           image: AssetImage(widget.text),
-                          width: 23.6,
-                          height: 23.6,
+                          width: 27,
+                          height: 27,
                         ),
                         onPressed: null,
                         style: TextButton.styleFrom(
