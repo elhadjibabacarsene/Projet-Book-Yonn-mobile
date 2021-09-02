@@ -1,4 +1,6 @@
 import 'package:book_yonn_mobile/views/inscriptions/inscriptions.dart';
+import 'package:book_yonn_mobile/views/inscriptions/inscriptions_form.dart';
+import 'package:book_yonn_mobile/views/inscriptions/inscriptions_home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +11,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Inscription(), debugShowCheckedModeBanner: false);
+    return MaterialApp(
+      initialRoute: '/inscription_home',
+      routes: {
+        '/inscription_home': (context) => InscriptionHome(),
+        '/inscription_form': (context) => InscriptionsForm(),
+      },
+      debugShowCheckedModeBanner: false
+    );
   }
 }
