@@ -1,4 +1,5 @@
 import 'package:book_yonn_mobile/views/inscriptions/components/form/custom_text_form_field.dart';
+import 'package:book_yonn_mobile/views/inscriptions/components/form/message_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -44,29 +45,7 @@ class InscriptionFormSteps{
         CustomTextFormField(label: 'Email'),
         SizedBox(
           height: 37,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.warning,
-                  color: HexColor('#ff2147'),
-                  size: 18,
-                ),
-                SizedBox(
-                  width: 10.5,
-                ),
-                Text(
-                  'Message d\'erreur',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontFamily: 'SF Pro Display Regular',
-                    color: HexColor('#ff2147')
-                  ),
-                )
-              ],
-            ),
-          ),
+          child: MessageTextFormField(message: 'Message d\'erreur', typeMessage: 'error',),
         ),
         CustomTextFormField(
           label: 'Mot de passe',
@@ -75,7 +54,10 @@ class InscriptionFormSteps{
             color: HexColor('#9f9f9f'),
           ),
         ),
-        SizedBox(height: 37,),
+        SizedBox(
+          height: 37,
+          child: MessageTextFormField(message: 'Message de confirmation', typeMessage: 'success',),
+        ),
         CustomTextFormField(
           label: 'Confirmer mot de passe',
           suffixIcon: Icon(
