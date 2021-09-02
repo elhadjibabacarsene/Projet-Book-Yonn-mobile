@@ -1,7 +1,9 @@
+import 'package:book_yonn_mobile/views/inscriptions/components/buttons/button_big.dart';
 import 'package:flutter/material.dart';
 import 'components/app_bar_inscription/app_bar_inscription.dart';
 import 'components/buttons/button_social_inscription.dart';
 import 'package:hexcolor/hexcolor.dart';
+
 
 
 class InscriptionHome extends StatefulWidget {
@@ -18,7 +20,7 @@ class _InscriptionState extends State<InscriptionHome> {
         backgroundColor: Colors.white,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(70.0),
-          child: AppBarInscription(),
+          child: AppBarInscription(stepperVisibily: false,),
           ),
           body: SingleChildScrollView(
             child: Padding(
@@ -63,23 +65,12 @@ class _InscriptionState extends State<InscriptionHome> {
                 Container(
                   width: 305,
                   height: 50,
-                  child: ElevatedButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: HexColor('#2884ff'),
+                  child: ButtonBig(
+                      title: 'S\'inscrire avec un email',
+                      bgColor: HexColor('#2884ff'),
+                      textColor: HexColor('#ffffff'),
+                      action: navigateToInscriptionForm,
                     ),
-                    child: Text(
-                        'S\'inscrire avec un email',
-                        style: TextStyle(
-                          color: HexColor('#ffffff'),
-                          fontFamily: 'Circular Std Bold',
-                          fontSize: 18,
-                          letterSpacing: 0.24,
-                        )
-                      ),
-                    onPressed: (){
-                      Navigator.pushNamed(context, '/inscription_form');
-                    },
-                  ),
                 ),
                 SizedBox(height: 270,),
                 Container(
@@ -102,4 +93,8 @@ class _InscriptionState extends State<InscriptionHome> {
           ),
       )
     ;}
+
+     void navigateToInscriptionForm(){
+      Navigator.pushNamed(context, '/inscription_form');
+    }
 }

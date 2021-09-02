@@ -4,7 +4,7 @@ import 'package:hexcolor/hexcolor.dart';
 class ButtonSocialInscription extends StatefulWidget {
 
   final String text;
-
+  
   const ButtonSocialInscription({ Key? key, required this.text }) : super(key: key);
   @override
   _ButtonSocialInscriptionState createState() => _ButtonSocialInscriptionState();

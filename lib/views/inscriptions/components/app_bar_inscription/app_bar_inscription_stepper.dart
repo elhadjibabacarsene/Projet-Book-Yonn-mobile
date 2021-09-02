@@ -34,7 +34,7 @@ class _AppBarInscriptionStepperState extends State<AppBarInscriptionStepper> {
         ),
         child: CircleAvatar(
             backgroundColor: index == 0 ? HexColor('#2884ff') : Colors.transparent,
-            radius: 07.0,
+            radius: 06.0,
        ),
       ),
     );
@@ -42,7 +42,7 @@ class _AppBarInscriptionStepperState extends State<AppBarInscriptionStepper> {
 
   createAllCircle(){
     final children = <Widget>[];
-    for (var i = 0; i < formStepsNumber + 1; i++) {
+    for (var i = 0; i < formStepsNumber; i++) {
       print(i);
       children.add(createOneCircle(i));
     }

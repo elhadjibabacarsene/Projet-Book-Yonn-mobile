@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'components/app_bar_inscription/app_bar_inscription.dart';
-import 'inscriptions_home.dart';
 
 class Inscription extends StatefulWidget {
   const Inscription({ Key? key }) : super(key: key);
@@ -16,7 +15,7 @@ class _InscriptionState extends State<Inscription> {
       backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(70.0),
-        child: AppBarInscription(),
+        child: AppBarInscription(stepperVisibily: false),
         ),
         body: null,
     )
