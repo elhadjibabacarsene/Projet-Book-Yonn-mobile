@@ -14,7 +14,7 @@ class _InscriptionsFormState extends State<InscriptionsForm> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Form inscription')
+      child: Text('Formulaire inscription')
     );
   }
 }

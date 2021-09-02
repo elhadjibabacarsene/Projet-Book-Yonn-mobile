@@ -1,4 +1,3 @@
-import 'package:book_yonn_mobile/views/inscriptions/inscriptions.dart';
 import 'package:book_yonn_mobile/views/inscriptions/inscriptions_form.dart';
 import 'package:book_yonn_mobile/views/inscriptions/inscriptions_home.dart';
 import 'package:flutter/material.dart';
