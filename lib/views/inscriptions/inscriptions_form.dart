@@ -35,7 +35,7 @@ class _InscriptionsFormState extends State<InscriptionsForm> {
       backgroundColor: HexColor('#ffffff'),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(70.0),
-        child: AppBarInscription(stepperVisibily: true),
+        child: AppBarInscription(stepperVisibily: true, numberStep: inscriptionFormSteps.getNumberStep()),
       ),
       body: SafeArea(
             child: Padding(
@@ -50,13 +50,13 @@ class _InscriptionsFormState extends State<InscriptionsForm> {
             children: [
                 containerButtonSteps(
                   title: 'Préc.',
-                  action: precSteps,
+                  action: precStep,
                   bgColor: HexColor('#efefef'),
                    textColor: HexColor('#454f63'),
                 ),
                 containerButtonSteps(
                   title: 'Suiv.',
-                  action: precSteps,
+                  action: nextStep,
                   bgColor: HexColor('#2884ff'),
                   textColor: HexColor('#ffffff'),
                 ),
@@ -66,7 +66,15 @@ class _InscriptionsFormState extends State<InscriptionsForm> {
     );
   }
 
-  void precSteps(){
+  void precStep(){
+    setState(() {
+      inscriptionFormSteps.switchPrevStep();
+    });
+  }
 
+  void nextStep(){
+    setState(() {
+      inscriptionFormSteps.switchNextStep();
+    });
   }
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -6,7 +5,9 @@ import 'package:hexcolor/hexcolor.dart';
 
 class AppBarInscriptionStepper extends StatefulWidget {
 
-  const AppBarInscriptionStepper({ Key? key }) : super(key: key);
+  final int numberStep;
+
+  const AppBarInscriptionStepper({ Key? key, required this.numberStep }) : super(key: key);
 
   @override
   _AppBarInscriptionStepperState createState() => _AppBarInscriptionStepperState();
@@ -33,7 +34,7 @@ class _AppBarInscriptionStepperState extends State<AppBarInscriptionStepper> {
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: CircleAvatar(
-            backgroundColor: index == 0 ? HexColor('#2884ff') : Colors.transparent,
+            backgroundColor: index <= widget.numberStep ? HexColor('#2884ff') : Colors.transparent,
             radius: 06.0,
        ),
       ),

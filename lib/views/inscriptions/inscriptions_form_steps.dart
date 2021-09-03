@@ -17,12 +17,12 @@ class InscriptionFormSteps{
                 fontSize: 16,
                 letterSpacing: 0.2,
                 color: HexColor('#454f63'),
-              ),
+            ),
           ),
           SizedBox(
             height: 37,
           ),
-          CustomTextFormField(label: 'Prénom(s) et nom') 
+          CustomTextFormField(label: 'Prénom(s) et nom')
       ],
     ),
     Column(
@@ -69,14 +69,24 @@ class InscriptionFormSteps{
     )
   ];
 
-  void getNextStep(){
+  int getNumberStep(){
+    return _numberStep;
+  }
+
+  void switchNextStep(){
     if(_numberStep < steps.length - 1){
       _numberStep++;
     }
   }
 
+  void switchPrevStep(){
+    if(_numberStep != 0){
+      _numberStep--;
+    }
+  }
+
   Widget getCurrentSteps(){
-    return steps[2];
+    return steps[_numberStep];
   }
 
 }

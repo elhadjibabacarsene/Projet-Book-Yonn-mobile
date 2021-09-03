@@ -4,8 +4,9 @@ import 'app_bar_inscription_stepper.dart';
 
 class AppBarInscription extends StatefulWidget {
   final bool stepperVisibily;
+  final int numberStep;
 
-  const AppBarInscription({ Key? key, required this.stepperVisibily }) : super(key: key);
+  const AppBarInscription({ Key? key, required this.stepperVisibily, required this.numberStep }) : super(key: key);
 
   @override
   _AppBarInscriptionState createState() => _AppBarInscriptionState();
@@ -43,7 +44,7 @@ class _AppBarInscriptionState extends State<AppBarInscription> {
           child: Align(
             alignment: Alignment.centerRight,
             child: Visibility(
-              child: AppBarInscriptionStepper(),
+              child: AppBarInscriptionStepper(numberStep: widget.numberStep),
               visible: widget.stepperVisibily,
               ),
           ),

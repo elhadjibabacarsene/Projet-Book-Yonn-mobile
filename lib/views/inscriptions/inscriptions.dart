@@ -15,7 +15,7 @@ class _InscriptionState extends State<Inscription> {
       backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(70.0),
-        child: AppBarInscription(stepperVisibily: false),
+        child: AppBarInscription(stepperVisibily: false, numberStep: 0),
         ),
         body: null,
     )
