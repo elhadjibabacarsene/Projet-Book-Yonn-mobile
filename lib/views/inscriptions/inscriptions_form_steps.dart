@@ -2,11 +2,15 @@ import 'package:book_yonn_mobile/views/inscriptions/components/form/custom_text_
 import 'package:book_yonn_mobile/views/inscriptions/components/form/message_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
+bool isSwitch0n = false;
 
 class InscriptionFormSteps{
 
   int _numberStep = 0;
+
+  
 
   List<Widget> steps =[
       Column(children: [
@@ -56,7 +60,6 @@ class InscriptionFormSteps{
         ),
         SizedBox(
           height: 37,
-          child: MessageTextFormField(message: 'Message de confirmation', typeMessage: 'success',),
         ),
         CustomTextFormField(
           label: 'Confirmer mot de passe',
@@ -65,6 +68,64 @@ class InscriptionFormSteps{
             color: HexColor('#9f9f9f'),
           ),
         ),
+        SizedBox(
+          height: 37,
+          child: MessageTextFormField(message: 'Message de confirmation', typeMessage: 'success',),
+        ),
+        SizedBox(
+          height: 56.7,
+        ),
+        Row(
+          children: [
+            FlutterSwitch(
+              inactiveColor: HexColor('#efefef'),
+              value: isSwitch0n, onToggle: (value){
+                isSwitch0n = true;
+              }
+            ),
+            SizedBox(
+              width: 15,
+            ),
+            RichText(
+              text: TextSpan(
+                text: 'j\'accepte tous les ',
+                style: TextStyle(
+                  color: HexColor('#454f63'),
+                  fontFamily: 'SF Pro Display Regular',
+                  fontSize: 18
+                ),
+                children: [
+                  TextSpan(
+                    text: 'termes, ',
+                    style: TextStyle(
+                      fontFamily: 'SF Pro Display Regular',
+                      fontWeight: FontWeight.bold,
+                      color: HexColor('#2884ff'),
+                      fontSize: 18
+                    )
+                  ),
+                  TextSpan(
+                    text: 'la ',
+                    style: TextStyle(
+                    color: HexColor('#454f63'),
+                    fontFamily: 'SF Pro Display Regular',
+                    fontSize: 18
+                  )
+                  ),
+                  TextSpan(
+                    text: 'politique\nde confidentialité',
+                    style: TextStyle(
+                      fontFamily: 'SF Pro Display Regular',
+                      fontWeight: FontWeight.bold,
+                      color: HexColor('#2884ff'),
+                      fontSize: 18
+                    )
+                  )
+                ]
+              )
+            ),
+          ],
+        )
       ],
     ),
     Padding(
@@ -97,6 +158,90 @@ class InscriptionFormSteps{
             )
         ],
       ),
+    ),
+    Column(
+      children: [
+        CustomTextFormField(
+          label: 'Numéro de permis',
+          suffixIcon: Icon(
+            Icons.info_outline
+          )
+        ),
+        SizedBox(
+          height: 80,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.5),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.document_scanner_outlined,
+                  size: 30,
+                  color: HexColor(
+                      '#2884ff'
+                    ),
+                ),
+                SizedBox(
+                  width: 14.7,
+                ),
+                Text(
+                  'Scanner mon permis',
+                  style: TextStyle(
+                    color: HexColor(
+                      '#2884ff'
+                    ),
+                    fontFamily: 'Circular Std Bold',
+                    fontSize: 18
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        CustomTextFormField(
+          label: 'Numéro de serie de la voiture',
+          suffixIcon: Icon(
+            Icons.info_outline
+          )
+        ),
+        SizedBox(
+          height: 80,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.5),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.palette_outlined,
+                  size: 30,
+                  color: HexColor(
+                      '#2884ff'
+                    ),
+                ),
+                SizedBox(
+                  width: 14.7,
+                ),
+                Text(
+                  'Ma couleur de voiture',
+                  style: TextStyle(
+                    color: HexColor(
+                      '#2884ff'
+                    ),
+                    fontFamily: 'Circular Std Bold',
+                    fontSize: 18
+                  ),
+                ),
+                SizedBox(
+                  width: 90,
+                ),
+                CircleAvatar(
+                  radius: 9,
+                  backgroundColor: HexColor('#c60000'),
+                )
+              ],
+            ),
+          ),
+        )
+        
+      ],
     )
   ];
 
@@ -117,7 +262,7 @@ class InscriptionFormSteps{
   }
 
   Widget getCurrentSteps(){
-    return steps[3];
+    return steps[_numberStep];
   }
 
 }
