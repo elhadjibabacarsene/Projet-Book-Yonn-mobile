@@ -33,6 +33,6 @@ class InscriptionFormSteps {
   }
 
   Widget getCurrentSteps() {
-    return steps[4];
+    return steps[_numberStep];
   }
 }

@@ -1,7 +1,7 @@
+import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:book_yonn_mobile/views/inscriptions/components/app_bar_inscription/app_bar_inscription.dart';
 import 'package:book_yonn_mobile/views/inscriptions/components/buttons/button_big.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'inscriptions_form_steps.dart';
 
 InscriptionFormSteps inscriptionFormSteps = new InscriptionFormSteps(); 
@@ -32,7 +32,7 @@ class _InscriptionsFormState extends State<InscriptionsForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HexColor('#ffffff'),
+      backgroundColor: colorWhite,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(70.0),
         child: AppBarInscription(stepperVisibily: true, numberStep: inscriptionFormSteps.getNumberStep()),
@@ -51,14 +51,14 @@ class _InscriptionsFormState extends State<InscriptionsForm> {
                 containerButtonSteps(
                   title: 'Préc.',
                   action: precStep,
-                  bgColor: HexColor('#efefef'),
-                   textColor: HexColor('#454f63'),
+                  bgColor: colorGray,
+                   textColor: colorDarkGray,
                 ),
                 containerButtonSteps(
                   title: 'Suiv.',
                   action: nextStep,
-                  bgColor: HexColor('#2884ff'),
-                  textColor: HexColor('#ffffff'),
+                  bgColor: colorBlue,
+                  textColor: colorWhite,
                 ),
             ],
           ),

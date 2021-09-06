@@ -1,5 +1,5 @@
+import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 
 class MessageTextFormField extends StatefulWidget {
@@ -22,7 +22,7 @@ class _MessageTextFormFieldState extends State<MessageTextFormField> {
               children: [
                 Icon(
                   widget.typeMessage == 'success' ? Icons.check : (widget.typeMessage == 'error') ? Icons.warning : null,
-                  color: widget.typeMessage == 'success' ? HexColor('#00b969') : (widget.typeMessage == 'error') ? HexColor('#ff2147') : null,
+                  color: widget.typeMessage == 'success' ? colorGreen : (widget.typeMessage == 'error') ? colorRed : null,
                   size: 18,
                 ),
                 SizedBox(
@@ -33,7 +33,7 @@ class _MessageTextFormFieldState extends State<MessageTextFormField> {
                   style: TextStyle(
                     fontSize: 15,
                     fontFamily: 'SF Pro Display Regular',
-                    color: widget.typeMessage == 'success' ? HexColor('#00b969') : (widget.typeMessage == 'error') ? HexColor('#ff2147') : null
+                    color: widget.typeMessage == 'success' ? colorGreen : (widget.typeMessage == 'error') ? colorRed : null
                   ),
                 )
               ],

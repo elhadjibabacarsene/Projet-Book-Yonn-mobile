@@ -1,8 +1,8 @@
+import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:book_yonn_mobile/views/inscriptions/components/buttons/button_big.dart';
 import 'package:flutter/material.dart';
 import 'components/app_bar_inscription/app_bar_inscription.dart';
 import 'components/buttons/button_social_inscription.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 
 
@@ -35,7 +35,7 @@ class _InscriptionState extends State<InscriptionHome> {
                     style: TextStyle(
                       fontSize: 22,
                       fontFamily: 'SF Pro Display Regular',
-                      color: HexColor('#454f63'),
+                      color: colorDarkGray,
                     ),
                     ),
                 ),
@@ -57,7 +57,7 @@ class _InscriptionState extends State<InscriptionHome> {
                           style: TextStyle(
                             fontSize: 24,
                             fontFamily: 'SF Pro Display Regular',
-                            color: HexColor('#454f63'),
+                            color: colorDarkGray,
                             ),
                       ),
                 ),
@@ -67,8 +67,8 @@ class _InscriptionState extends State<InscriptionHome> {
                   height: 50,
                   child: ButtonBig(
                       title: 'S\'inscrire avec un email',
-                      bgColor: HexColor('#2884ff'),
-                      textColor: HexColor('#ffffff'),
+                      bgColor: colorBlue,
+                      textColor: colorWhite,
                       action: navigateToInscriptionForm,
                     ),
                 ),
@@ -82,7 +82,7 @@ class _InscriptionState extends State<InscriptionHome> {
                           fontFamily: 'Circular Std Bold',
                           fontSize: 19,
                           letterSpacing: 0.24,
-                          color: HexColor('#2884ff'),
+                          color: colorBlue,
                         )
                       )
                   ),
