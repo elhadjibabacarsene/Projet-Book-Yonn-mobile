@@ -45,7 +45,6 @@ class _AppBarInscriptionStepperState extends State<AppBarInscriptionStepper> {
   createAllCircle(){
     final children = <Widget>[];
     for (var i = 0; i < formStepsNumber; i++) {
-      print(i);
       children.add(createOneCircle(i));
     }
     return children;

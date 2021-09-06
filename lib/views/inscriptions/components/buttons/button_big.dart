@@ -6,8 +6,8 @@ import 'package:hexcolor/hexcolor.dart';
 class ButtonBig extends StatefulWidget {
 
    final String title;
-   final HexColor bgColor;
-   final HexColor textColor;
+   final Color bgColor;
+   final Color textColor;
    final VoidCallback action;
 
 
