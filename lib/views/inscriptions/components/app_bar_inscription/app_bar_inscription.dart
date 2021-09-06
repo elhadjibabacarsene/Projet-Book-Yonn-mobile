@@ -1,3 +1,4 @@
+import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'app_bar_inscription_stepper.dart';
 
@@ -18,7 +19,7 @@ class _AppBarInscriptionState extends State<AppBarInscription> {
     return AppBar(
     automaticallyImplyLeading: false,
     elevation: 0,
-    backgroundColor: Colors.white,
+    backgroundColor: colorWhite,
     title: Row(
       children: [
         Expanded(
@@ -26,7 +27,7 @@ class _AppBarInscriptionState extends State<AppBarInscription> {
             alignment: Alignment.centerLeft,
             child: Icon(
                 Icons.arrow_back,
-                color: Colors.black,
+                color: colorBlack,
               ),
           ),
         ),
@@ -36,7 +37,7 @@ class _AppBarInscriptionState extends State<AppBarInscription> {
                style: TextStyle(
                   fontSize: 18,
                   fontFamily: 'Circular Std Bold',
-              color: Colors.black,
+              color: colorBlack,
               ),
             ),
         ),

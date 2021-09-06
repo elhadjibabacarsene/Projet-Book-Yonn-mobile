@@ -1,5 +1,5 @@
+import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class ButtonSocialInscription extends StatefulWidget {
 
@@ -24,7 +24,7 @@ class _ButtonSocialInscriptionState extends State<ButtonSocialInscription> {
                         ),
                         onPressed: null,
                         style: TextButton.styleFrom(
-                          backgroundColor: HexColor('#efefef'),
+                          backgroundColor: colorGray,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           )

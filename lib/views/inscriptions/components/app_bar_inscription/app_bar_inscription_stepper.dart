@@ -1,3 +1,4 @@
+import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -30,11 +31,11 @@ class _AppBarInscriptionStepperState extends State<AppBarInscriptionStepper> {
       padding: const EdgeInsets.only(left: 5.0),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: HexColor('#707070'), width: 0.25),
+          border: Border.all(color: colorMediumGray, width: 0.25),
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: CircleAvatar(
-            backgroundColor: index <= widget.numberStep ? HexColor('#2884ff') : Colors.transparent,
+            backgroundColor: index <= widget.numberStep ? colorBlue : Colors.transparent,
             radius: 06.0,
        ),
       ),
