@@ -1,15 +1,22 @@
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:book_yonn_mobile/views/inscriptions/components/modal/list_colors.dart';
+import 'package:book_yonn_mobile/views/inscriptions/components/modal/modal_color_car.dart';
+import 'package:book_yonn_mobile/views/inscriptions/components/steps/step5.dart';
 import 'package:flutter/material.dart';
 
+_BrainColorCarState? brainColorCarState;
+
 class BrainColorCar extends StatefulWidget {
+
   const BrainColorCar({Key? key}) : super(key: key);
 
   @override
-  _BrainColorCarState createState() => _BrainColorCarState();
+  _BrainColorCarState createState() => brainColorCarState = _BrainColorCarState();
 }
 
 class _BrainColorCarState extends State<BrainColorCar> {
+  int colorChooseIndex = step5state!.indexColorChoosed;
+
   List<Row> listRows = [];
   generatePaletteCarColor() {
     int indexColor = 0;
@@ -20,12 +27,18 @@ class _BrainColorCarState extends State<BrainColorCar> {
           j++) {
         listColors.add(Padding(
           padding: const EdgeInsets.all(10.0),
-          child: CircleAvatar(
-            radius: 17,
-            backgroundColor: colorMediumGray,
+          child: GestureDetector(
+            onTap: () {
+              chooseColor(j);
+            },
             child: CircleAvatar(
-              radius: 16,
-              backgroundColor: getColor(j),
+              radius: colorChooseIndex == j ? 19 : 17,
+              backgroundColor:
+                  colorChooseIndex == j ? colorBlue : colorMediumGray,
+              child: CircleAvatar(
+                radius: 16,
+                backgroundColor: getColor(j),
+              ),
             ),
           ),
         ));
@@ -58,5 +71,15 @@ class _BrainColorCarState extends State<BrainColorCar> {
 
   int getNumberRows() {
     return getNumberColors() ~/ 6;
+  }
+
+  chooseColor(index) {
+    setState(() {
+      listRows = [];
+      colorChooseIndex = index;
+      modalColorCarState?.setState(() {
+         modalColorCarState?.selectedColorIndex = index;
+      });
+    });
   }
 }

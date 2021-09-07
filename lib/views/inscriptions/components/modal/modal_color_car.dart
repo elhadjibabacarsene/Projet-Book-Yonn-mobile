@@ -1,25 +1,24 @@
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
-import 'package:book_yonn_mobile/views/inscriptions/components/buttons/button_big.dart';
 import 'package:book_yonn_mobile/views/inscriptions/components/buttons/container_button_step.dart';
+import 'package:book_yonn_mobile/views/inscriptions/components/steps/step5.dart';
 import 'package:flutter/material.dart';
 import 'brain_color_car.dart';
 
-BrainColorCar brainColorCar = new BrainColorCar();
-
-List<Row> listRows = [];
+_ModalColorCarState? modalColorCarState;
 
 class ModalColorCar extends StatefulWidget {
   const ModalColorCar({Key? key}) : super(key: key);
 
   @override
-  _ModalColorCarState createState() => _ModalColorCarState();
+  _ModalColorCarState createState() =>
+      modalColorCarState = _ModalColorCarState();
 }
 
 class _ModalColorCarState extends State<ModalColorCar> {
+  int selectedColorIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    // print(brainColorCar.getNumberRows());
-
     return AlertDialog(
       contentPadding: EdgeInsets.only(top: 41.0),
       insetPadding: EdgeInsets.all(12.0),
@@ -38,7 +37,8 @@ class _ModalColorCarState extends State<ModalColorCar> {
       actions: [
         Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
-          child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             ContainerButtonStep(
               title: 'Annuler',
               bgColor: colorGray,
@@ -49,7 +49,7 @@ class _ModalColorCarState extends State<ModalColorCar> {
               title: 'Enregistrer',
               bgColor: colorBlue,
               textColor: colorWhite,
-              action: closeModalColorCar,
+              action: saveChoosedColor,
             )
           ]),
         )
@@ -61,5 +61,10 @@ class _ModalColorCarState extends State<ModalColorCar> {
     Navigator.pop(context);
   }
 
-  void chooseColor() {}
+  void saveChoosedColor() {
+    closeModalColorCar();
+    step5state?.setState(() {
+        step5state?.indexColorChoosed = selectedColorIndex;
+    });
+  }
 }

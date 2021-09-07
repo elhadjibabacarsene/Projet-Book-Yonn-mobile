@@ -1,19 +1,23 @@
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:book_yonn_mobile/views/inscriptions/components/form/custom_text_form_field.dart';
+import 'package:book_yonn_mobile/views/inscriptions/components/modal/list_colors.dart';
 import 'package:book_yonn_mobile/views/inscriptions/components/modal/modal_color_car.dart';
 import 'package:flutter/material.dart';
+
+_Step5State? step5state;
 
 class Step5 extends StatefulWidget {
   const Step5({Key? key}) : super(key: key);
 
   @override
-  _Step5State createState() => _Step5State();
+  _Step5State createState() => step5state = _Step5State();
 }
 
 class _Step5State extends State<Step5> {
-  
+  int indexColorChoosed = 0;
   @override
   Widget build(BuildContext context) {
+
     return Column(
       children: [
         CustomTextFormField(
@@ -75,8 +79,12 @@ class _Step5State extends State<Step5> {
                     width: 90,
                   ),
                   CircleAvatar(
-                    radius: 9,
-                    backgroundColor: colorRed,
+                    radius: 10,
+                    backgroundColor: colorMediumGray,
+                    child: CircleAvatar(
+                      radius: 9,
+                      backgroundColor: carColors[indexColorChoosed],
+                    ),
                   )
                 ],
               ),
@@ -86,6 +94,4 @@ class _Step5State extends State<Step5> {
       ],
     );
   }
-
-  
 }
