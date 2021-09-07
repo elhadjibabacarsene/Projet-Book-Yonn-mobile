@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -210,7 +212,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 35,vertical: 17),
           
                   ),
-                  onPressed: () {} ,
+                  onPressed: () {  } ,
+                  
                   child: Text('Commencer',
                             style: TextStyle(
                               color: Colors.white,
@@ -225,5 +228,4 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 }
-
 
