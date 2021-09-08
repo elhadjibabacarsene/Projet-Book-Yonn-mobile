@@ -29,13 +29,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   animated_splash_screen: ^1.1.0
- 
+  flutter_switch: ^0.3.2
 
- 
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -52,6 +49,7 @@ flutter:
   assets:
     - assets/images/
   #   - images/a_dot_ham.jpeg
+    - assets/icones/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -65,14 +63,12 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family:  Circular Std Bold
-       fonts:
-         - asset: assets/fonts/Circular-Std-Bold.ttf
-     - family: SF Pro Display Regular 
-       fonts:
-         - asset: assets/fonts/SF-Pro-Display-Regular.ttf 
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+    - family: Circular Std Bold
+      fonts:
+        - asset: assets/fonts/Circular-Std-Bold.ttf
+    - family: SF Pro Display Regular 
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Regular.ttf 
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

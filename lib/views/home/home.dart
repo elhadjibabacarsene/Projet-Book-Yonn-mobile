@@ -1,4 +1,7 @@
 
+import 'package:book_yonn_mobile/views/connexion/connexion_home.dart';
+import 'package:book_yonn_mobile/views/connexion/connexion.form.dart';
+import 'package:book_yonn_mobile/views/connexion/connexion_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -210,15 +213,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   style: ElevatedButton.styleFrom(
                       side: BorderSide(color:Colors.blueAccent.shade700),
                       padding: const EdgeInsets.symmetric(horizontal: 35,vertical: 17),
+                     
           
                   ),
-                  onPressed: () {  } ,
+                  onPressed: () {Navigator.of(context).push(navigateToInscriptionForm());} ,
                   
                   child: Text('Commencer',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 22.0,
-                            ),),
+                              
+                              
+                            ),
+                            ),
                 ),
             ),
           ),
@@ -227,5 +234,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           : Text(''),
     );
   }
+ navigateToInscriptionForm(){
+      Navigator.pushNamed(context, '/connexion_home');
+    }
 }
+
 
