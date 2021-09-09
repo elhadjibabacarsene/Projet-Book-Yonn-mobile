@@ -25,6 +25,9 @@ class _BottomNavBarAbonneState extends State<BottomNavBarAbonne>
   double heightNav = 100.0;
   bool addMoreActivated = false;
 
+  bool isBottomNavBar1clicked = true;
+  bool isBottomNavBar2clicked = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,9 +42,13 @@ class _BottomNavBarAbonneState extends State<BottomNavBarAbonne>
           currentIndex: _currentIndexFirst,
           items: firstBottomNavigationBarItem,
           onTap: onTabTappedFirst,
-          selectedIconTheme: iconBottomItemsStyle(35, colorBlue),
+          selectedIconTheme: isBottomNavBar1clicked
+              ? iconBottomItemsStyle(35, colorBlue)
+              : iconBottomItemsStyle(35, colorNavigation),
           unselectedIconTheme: iconBottomItemsStyle(35, colorNavigation),
-          selectedLabelStyle: labelBottomItemsStyle(11, colorBlue),
+          selectedLabelStyle: isBottomNavBar1clicked
+              ? labelBottomItemsStyle(11, colorBlue)
+              : labelBottomItemsStyle(11, colorNavigation),
           unselectedLabelStyle: labelBottomItemsStyle(11, colorNavigation),
         ),
         Visibility(
@@ -53,15 +60,13 @@ class _BottomNavBarAbonneState extends State<BottomNavBarAbonne>
             currentIndex: _currentIndexSecond,
             items: secondBottomNavigationBarItem,
             onTap: onTabTappedSecond,
-            selectedIconTheme:
-                _currentIndexSecond != 0 && addMoreActivated == true
-                    ? iconBottomItemsStyle(35, colorBlue)
-                    : iconBottomItemsStyle(35, colorNavigation),
+            selectedIconTheme: isBottomNavBar2clicked
+                ? iconBottomItemsStyle(35, colorBlue)
+                : iconBottomItemsStyle(35, colorNavigation),
             unselectedIconTheme: iconBottomItemsStyle(35, colorNavigation),
-            selectedLabelStyle:
-                _currentIndexSecond != 0 && addMoreActivated == true
-                    ? labelBottomItemsStyle(11, colorBlue)
-                    : labelBottomItemsStyle(11, colorNavigation),
+            selectedLabelStyle: isBottomNavBar2clicked
+                ? labelBottomItemsStyle(11, colorBlue)
+                : labelBottomItemsStyle(11, colorNavigation),
             unselectedLabelStyle: labelBottomItemsStyle(11, colorNavigation),
           ),
         )
@@ -73,7 +78,8 @@ class _BottomNavBarAbonneState extends State<BottomNavBarAbonne>
   onTabTappedFirst(int index) {
     setState(() {
       _currentIndexFirst = index;
-
+      isBottomNavBar1clicked = true;
+      isBottomNavBar2clicked = false;
       abonneMainState?.setState(() {
         abonneMainState?.currentIndexFirst = _currentIndexFirst;
         abonneMainState?.currentIndexSecond = 0;
@@ -89,16 +95,13 @@ class _BottomNavBarAbonneState extends State<BottomNavBarAbonne>
   onTabTappedSecond(int index) {
     setState(() {
       _currentIndexSecond = index;
-
+      isBottomNavBar1clicked = false;
+      isBottomNavBar2clicked = true;
       abonneMainState?.setState(() {
         abonneMainState?.currentIndexSecond = _currentIndexSecond;
         abonneMainState?.currentIndexFirst = 0;
         _currentIndexFirst = 0;
       });
-      // If more option tapped
-      if (index == 2) {
-        onAddMoreClicked();
-      }
     });
   }
 
@@ -161,6 +164,5 @@ labelBottomItemsStyle(double size, Color color) {
   return TextStyle(
     fontSize: size,
     fontFamily: 'SF Pro Display Regular',
-    color: color,
   );
 }
