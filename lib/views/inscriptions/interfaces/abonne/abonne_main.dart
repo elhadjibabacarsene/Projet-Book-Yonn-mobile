@@ -1,4 +1,4 @@
-import 'package:book_yonn_mobile/views/inscriptions/interfaces/abonne/components/bottomNavbarAbonne/bottomnavbar_abonne.dart';
+import 'package:book_yonn_mobile/views/inscriptions/interfaces/abonne/components/bottomNavbarAbonne/buildBottomNavBar.dart';
 import 'package:flutter/material.dart';
 
 _AbonneMainState? abonneMainState;
@@ -39,11 +39,15 @@ class _AbonneMainState extends State<AbonneMain> {
         body: Container(
           color: Colors.red,
           width: double.infinity,
-          child: currentIndexFirst != 0 ? _pageFirst[currentIndexFirst] : (currentIndexSecond != 0 ? _pageSecond[currentIndexSecond] : _pageFirst[0]),
+          child: currentIndexFirst != 0
+              ? _pageFirst[currentIndexFirst]
+              : (currentIndexSecond != 0
+                  ? _pageSecond[currentIndexSecond]
+                  : _pageFirst[0]),
         ),
         bottomNavigationBar: PreferredSize(
           preferredSize: Size.fromHeight(50.0),
-          child: BottomNavBarAbonne(),
+          child: BuildBottomNavbar(),
         ),
       ),
     );
