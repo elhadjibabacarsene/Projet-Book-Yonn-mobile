@@ -22,7 +22,7 @@ class _ButtonSocialConnexionState extends State<ButtonSocialConnexion> {
                           width: 27,
                           height: 27,
                         ),
-                       onPressed: () {Navigator.of(context).push(navigateToMapForm());} ,
+                       onPressed:navigateToMapForm ,
                         style: TextButton.styleFrom(
                           backgroundColor: colorGray,
                           shape: RoundedRectangleBorder(

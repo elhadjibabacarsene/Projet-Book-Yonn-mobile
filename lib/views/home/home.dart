@@ -216,7 +216,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                      
           
                   ),
-                  onPressed: () {Navigator.of(context).push(navigateToInscriptionForm());} ,
+                  onPressed:  navigateToConnexionForm ,
                   
                   child: Text('Commencer',
                             style: TextStyle(
@@ -234,7 +234,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           : Text(''),
     );
   }
- navigateToInscriptionForm(){
+ navigateToConnexionForm(){
       Navigator.pushNamed(context, '/connexion_home');
     }
 }
