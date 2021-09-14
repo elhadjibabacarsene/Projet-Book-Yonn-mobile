@@ -1,16 +1,16 @@
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
 
-class ButtonSocialInscription extends StatefulWidget {
+class ButtonSocialConnexion extends StatefulWidget {
 
   final String text;
   
-  const ButtonSocialInscription({ Key? key, required this.text }) : super(key: key);
+  const ButtonSocialConnexion({ Key? key, required this.text }) : super(key: key);
   @override
-  _ButtonSocialInscriptionState createState() => _ButtonSocialInscriptionState();
+  _ButtonSocialConnexionState createState() => _ButtonSocialConnexionState();
 }
 
-class _ButtonSocialInscriptionState extends State<ButtonSocialInscription> {
+class _ButtonSocialConnexionState extends State<ButtonSocialConnexion> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,16 +22,20 @@ class _ButtonSocialInscriptionState extends State<ButtonSocialInscription> {
                           width: 27,
                           height: 27,
                         ),
-                        onPressed: null,
+                       onPressed: () {Navigator.of(context).push(navigateToMapForm());} ,
                         style: TextButton.styleFrom(
                           backgroundColor: colorGray,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
+                            
                           )
                         ),
                       ),
                     );
   }
+     navigateToMapForm(){
+      Navigator.pushNamed(context, '/map');
+    }
 }
 
 

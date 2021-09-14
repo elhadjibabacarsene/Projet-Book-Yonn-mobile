@@ -94,9 +94,9 @@ class _InscriptionState extends State<ConnexionsHome> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      ButtonSocialInscription(text: 'assets/icones/google.png',),
-                      ButtonSocialInscription(text: 'assets/icones/facebook.png',),
-                      ButtonSocialInscription(text: 'assets/icones/apple.png',),
+                      ButtonSocialConnexion(text: 'assets/icones/google.png',),
+                      ButtonSocialConnexion(text: 'assets/icones/facebook.png',),
+                      ButtonSocialConnexion(text: 'assets/icones/apple.png',),
                     ],
                   ),
                 ),

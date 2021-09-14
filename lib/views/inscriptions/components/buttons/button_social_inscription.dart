@@ -1,6 +1,5 @@
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
-
 class ButtonSocialInscription extends StatefulWidget {
 
   final String text;

@@ -2,6 +2,7 @@ import 'package:book_yonn_mobile/views/demarrage/demarrage.dart';
 import 'package:book_yonn_mobile/views/connexion/connexion.form.dart';
 import 'package:book_yonn_mobile/views/connexion/connexion_home.dart';
 import 'package:book_yonn_mobile/views/inscriptions/inscriptions_home.dart';
+import 'package:book_yonn_mobile/views/interfaces/abonne/navigation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         '/inscription_home': (context) => InscriptionHome(),
         '/connexion_form': (context) => ConnexionsForm(),
         '/demarrage':(context)=>Demarrage(),
+        '/map':(context)=>MapSrceen(),
        
       },
       debugShowCheckedModeBanner: false
