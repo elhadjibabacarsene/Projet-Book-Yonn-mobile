@@ -1,5 +1,7 @@
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
 bool isPrenomValid = false;
 
@@ -7,7 +9,9 @@ class CustomTextFormField extends StatefulWidget {
   final String label;
   final Icon? prefixIcon;
   final Icon? suffixIcon;
+  final String? prefixText;
   final TextInputType? type;
+  final FocusNode? focusNode;
   final  readOnly;
   final TextInputAction? textInputAction;
   final onFieldSubmitted;
@@ -24,6 +28,8 @@ class CustomTextFormField extends StatefulWidget {
       this.textInputAction,
       this.onFieldSubmitted,
       this.readOnly = false,
+      this.prefixText,
+      this.focusNode,
       this.type})
       : super(key: key);
 
@@ -33,6 +39,7 @@ class CustomTextFormField extends StatefulWidget {
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
   TextEditingController _controller = new TextEditingController();
+  final DateFormat formatter = DateFormat('dd-MM-yyyy');
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -41,9 +48,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       keyboardType: TextInputType.datetime,
       textInputAction: widget.textInputAction,
       onFieldSubmitted: widget.onFieldSubmitted,
+      focusNode: widget.focusNode,
       readOnly: widget.readOnly,
       onTap: onTextFormFieldTaped,
       decoration: InputDecoration(
+          prefixText: widget.prefixText,
           hintText: widget.label,
           hintStyle: TextStyle(
             color: colorNormalGray,
@@ -83,7 +92,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         firstDate: firstDate,
         lastDate: lastDate);
     if (picked != null) {
-      _controller.text = picked.toString();
+      _controller.text = formatter.format(picked).toString();
     }
   }
 

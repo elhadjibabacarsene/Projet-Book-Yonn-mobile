@@ -3,8 +3,11 @@ import 'package:book_yonn_mobile/views/connexion/components/form/message_text_fo
 import 'package:book_yonn_mobile/views/inscriptions/components/form/custom_text_form_field.dart';
 import 'package:book_yonn_mobile/views/inscriptions/inscriptions_form.dart';
 import 'package:flutter/material.dart';
+import 'package:book_yonn_mobile/shared/validators/validators.dart';
 
 GlobalKey<FormState> keyFormStep1 = GlobalKey<FormState>();
+
+Validators validators = new Validators();
 
 class Step1 extends StatefulWidget {
   const Step1({Key? key}) : super(key: key);
@@ -14,7 +17,6 @@ class Step1 extends StatefulWidget {
 }
 
 class _Step1State extends State<Step1> {
-
   bool hasError = false;
 
   @override
@@ -39,14 +41,13 @@ class _Step1State extends State<Step1> {
             label: 'Prénom(s) et nom',
             type: TextInputType.text,
             textInputAction: TextInputAction.next,
-            onFieldSubmitted: (_){
+            onFieldSubmitted: (_) {
               inscriptionsFormState?.nextStep();
             },
             validator: (value) {
               if (value.isEmpty) {
                 return '\u26A0 Ce champs est obligatoire';
               }
-              return null;
             },
           ),
           Visibility(
