@@ -25,10 +25,13 @@ class _AppBarInscriptionState extends State<AppBarInscription> {
         Expanded(
           child: Align(
             alignment: Alignment.centerLeft,
-            child: Icon(
-                Icons.arrow_back,
-                color: colorBlack,
-              ),
+            child: GestureDetector(
+              onTap: redirectToBackPage,
+              child: Icon(
+                  Icons.arrow_back,
+                  color: colorBlack,
+                ),
+            ),
           ),
         ),
         Center(
@@ -53,5 +56,9 @@ class _AppBarInscriptionState extends State<AppBarInscription> {
       ],
     ),
     );
+  }
+
+  void redirectToBackPage() {
+    Navigator.pop(context);
   }
 }

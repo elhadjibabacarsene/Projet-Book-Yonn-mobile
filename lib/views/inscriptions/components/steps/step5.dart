@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 
 _Step5State? step5state;
 
+GlobalKey<FormState> keyFormStep5 = GlobalKey<FormState>();
+
 class Step5 extends StatefulWidget {
   const Step5({Key? key}) : super(key: key);
 
@@ -17,51 +19,23 @@ class _Step5State extends State<Step5> {
   int indexColorChoosed = 0;
   @override
   Widget build(BuildContext context) {
-
-    return Column(
-      children: [
-        CustomTextFormField(
-            label: 'Numéro de permis', suffixIcon: Icon(Icons.info_outline)),
-        SizedBox(
-          height: 80,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16.5),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.document_scanner_outlined,
-                  size: 30,
-                  color: colorBlue,
-                ),
-                SizedBox(
-                  width: 14.7,
-                ),
-                Text(
-                  'Scanner mon permis',
-                  style: TextStyle(
-                      color: colorBlue,
-                      fontFamily: 'Circular Std Bold',
-                      fontSize: 18),
-                )
-              ],
-            ),
+    return Form(
+      key: keyFormStep5,
+      child: Column(
+        children: [
+          CustomTextFormField(
+            label: 'Numéro de permis',
+            suffixIcon: Icon(Icons.info_outline),
+            type: TextInputType.text,
           ),
-        ),
-        CustomTextFormField(
-            label: 'Numéro de serie de la voiture',
-            suffixIcon: Icon(Icons.info_outline)),
-        SizedBox(
-          height: 80,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16.5),
-            child: GestureDetector(
-              onTap: () {
-                showDialog(context: context, builder: (_) => ModalColorCar());
-              },
+          SizedBox(
+            height: 80,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16.5),
               child: Row(
                 children: [
                   Icon(
-                    Icons.palette_outlined,
+                    Icons.document_scanner_outlined,
                     size: 30,
                     color: colorBlue,
                   ),
@@ -69,29 +43,64 @@ class _Step5State extends State<Step5> {
                     width: 14.7,
                   ),
                   Text(
-                    'Ma couleur de voiture',
+                    'Scanner mon permis',
                     style: TextStyle(
                         color: colorBlue,
                         fontFamily: 'Circular Std Bold',
                         fontSize: 18),
-                  ),
-                  SizedBox(
-                    width: 90,
-                  ),
-                  CircleAvatar(
-                    radius: 10,
-                    backgroundColor: colorMediumGray,
-                    child: CircleAvatar(
-                      radius: 9,
-                      backgroundColor: carColors[indexColorChoosed],
-                    ),
                   )
                 ],
               ),
             ),
           ),
-        )
-      ],
+          CustomTextFormField(
+            label: 'Numéro de serie de la voiture',
+            suffixIcon: Icon(Icons.info_outline),
+            type: TextInputType.text,
+          ),
+          SizedBox(
+            height: 80,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16.5),
+              child: GestureDetector(
+                onTap: () {
+                  showDialog(context: context, builder: (_) => ModalColorCar());
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(children: [
+                      Icon(
+                        Icons.palette_outlined,
+                        size: 30,
+                        color: colorBlue,
+                      ),
+                      SizedBox(
+                        width: 14.7,
+                      ),
+                      Text(
+                        'Ma couleur de voiture',
+                        style: TextStyle(
+                            color: colorBlue,
+                            fontFamily: 'Circular Std Bold',
+                            fontSize: 18),
+                      ),
+                    ]),
+                    CircleAvatar(
+                      radius: 10,
+                      backgroundColor: colorMediumGray,
+                      child: CircleAvatar(
+                        radius: 9,
+                        backgroundColor: carColors[indexColorChoosed],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

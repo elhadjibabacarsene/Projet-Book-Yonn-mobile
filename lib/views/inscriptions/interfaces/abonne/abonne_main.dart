@@ -31,6 +31,8 @@ class _AbonneMainState extends State<AbonneMain> {
     Center(child: Text('Page rechercher'))
   ];
 
+  set currentPageIndex(currentPageIndex) {}
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

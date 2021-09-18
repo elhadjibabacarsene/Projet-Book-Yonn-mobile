@@ -3,9 +3,10 @@ import 'package:book_yonn_mobile/views/inscriptions/components/form/custom_text_
 import 'package:flutter/material.dart';
 
 
+GlobalKey<FormState> keyFormStep2 = GlobalKey<FormState>();
 
 class Step2 extends StatefulWidget {
-  const Step2({ Key? key }) : super(key: key);
+  const Step2({Key? key}) : super(key: key);
 
   @override
   _Step2State createState() => _Step2State();
@@ -14,20 +15,35 @@ class Step2 extends StatefulWidget {
 class _Step2State extends State<Step2> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomTextFormField(
-          label: 'Date de naissance',
-          suffixIcon: Icon(
-            Icons.calendar_today_outlined,
-            color: colorLightGray,
+    return Form(
+      key: keyFormStep2,
+      child: Column(
+        children: [
+          CustomTextFormField(
+            label: 'Date de naissance',
+            type: TextInputType.datetime,
+            suffixIcon: Icon(
+              Icons.calendar_today_outlined,
+              color: colorLightGray,
+            ),
+            readOnly: true,
           ),
-        ),
-        SizedBox(height: 37,),
-        CustomTextFormField(label: 'Adresse'),
-        SizedBox(height: 37,),
-        CustomTextFormField(label: 'Numéro de téléphone')
-      ],
+          SizedBox(
+            height: 37,
+          ),
+          CustomTextFormField(
+            label: 'Adresse',
+            type: TextInputType.text,
+          ),
+          SizedBox(
+            height: 37,
+          ),
+          CustomTextFormField(
+            label: 'Numéro de téléphone',
+            type: TextInputType.text,
+          ),
+        ],
+      ),
     );
   }
 }

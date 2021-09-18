@@ -1,6 +1,10 @@
-import 'package:book_yonn_mobile/views/inscriptions/inscriptions_form.dart';
+import 'package:book_yonn_mobile/views/connexion/connexion_home.dart';
+import 'package:book_yonn_mobile/views/demarrage/demarrage.dart';
+import 'package:book_yonn_mobile/views/connexion/connexion.form.dart';
 import 'package:book_yonn_mobile/views/inscriptions/inscriptions_home.dart';
-import 'package:book_yonn_mobile/views/inscriptions/interfaces/abonne/abonne_main.dart';
+import 'package:book_yonn_mobile/views/inscriptions/inscriptions_form.dart';
+import 'package:book_yonn_mobile/views/interfaces/abonne/pages/abonne_center.dart';
+import 'package:book_yonn_mobile/views/interfaces/abonne/pages/navigation/navigation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,17 +12,19 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/abonne',
-      routes: {
-        '/abonne': (context) => AbonneMain(),
-        '/inscription_home': (context) => InscriptionHome(),
-        '/inscription_form': (context) => InscriptionsForm(),
-      },
-      debugShowCheckedModeBanner: false
-    );
+        initialRoute: '/demarrage',
+        routes: {
+          '/abonne_center': (context) => AbonneCenter(),
+          '/inscription_home': (context) => InscriptionHome(),
+          '/inscription_form': (context) => InscriptionsForm(),
+          '/connexion_form': (context) => ConnexionsForm(),
+          '/connexion_home': (context) => ConnexionsHome(),
+          '/demarrage': (context) => Demarrage(),
+          '/map': (context) => MapSrceen(),
+        },
+        debugShowCheckedModeBanner: false);
   }
 }

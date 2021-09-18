@@ -76,15 +76,18 @@ class _InscriptionState extends State<InscriptionHome> {
                 Container(
                   child: TextButton(
                     onPressed: null,
-                    child: Text(
-                        'J\'ai déjà un compte',
-                        style: TextStyle(
-                          fontFamily: 'Circular Std Bold',
-                          fontSize: 19,
-                          letterSpacing: 0.24,
-                          color: colorBlue,
-                        )
-                      )
+                    child: GestureDetector(
+                      onTap: navigateToConnexionpage,
+                      child: Text(
+                          'J\'ai déjà un compte',
+                          style: TextStyle(
+                            fontFamily: 'Circular Std Bold',
+                            fontSize: 19,
+                            letterSpacing: 0.24,
+                            color: colorBlue,
+                          )
+                        ),
+                    )
                   ),
                 ),
               ]
@@ -96,5 +99,8 @@ class _InscriptionState extends State<InscriptionHome> {
 
      void navigateToInscriptionForm(){
       Navigator.pushNamed(context, '/inscription_form');
+    }
+    void navigateToConnexionpage(){
+       Navigator.pushNamed(context, '/connexion_home');
     }
 }
