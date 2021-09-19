@@ -25,6 +25,7 @@ class _Step2State extends State<Step2> {
       child: Column(
         children: [
           CustomTextFormField(
+            controller: inscriptionsFormState!.dateNaissController,
             label: 'Date de naissance',
             type: TextInputType.datetime,
             onFieldSubmitted: (_) {
@@ -46,6 +47,7 @@ class _Step2State extends State<Step2> {
           ),
           CustomTextFormField(
             label: 'Adresse',
+            controller: inscriptionsFormState!.adressController,
             focusNode: addressesFocus,
             textInputAction: TextInputAction.next,
             type: TextInputType.text,
@@ -62,6 +64,7 @@ class _Step2State extends State<Step2> {
             height: 37,
           ),
           CustomTextFormField(
+            controller: inscriptionsFormState!.numTelController,
             label: 'Numéro de téléphone',
             type: TextInputType.text,
             focusNode: numTelFocus,

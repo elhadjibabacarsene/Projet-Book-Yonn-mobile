@@ -88,7 +88,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 15.0),
                             const Text(
-                              'Apprenez aux côtés de professionnels phares',
+                              'Vivez les plus belles expériences de covoiturage !',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
+                                  color: Colors.black87),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(40.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Center(
+                              child: Image(
+                                image: AssetImage(
+                                  'assets/images/slider1.png',
+                                ),
+                                height: 280.0,
+                                width: 280.0,
+                              ),
+                            ),
+                            const Text(
+                              'Avec la localisation, votre conducteur vous retrouverez où que vous soyez !',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 30,
@@ -113,32 +137,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 15.0),
                             const Text(
-                              'Apprenez aux côtés de professionnels phares',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 30,
-                                  color: Colors.black87),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(40.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Center(
-                              child: Image(
-                                image: AssetImage(
-                                  'assets/images/slider1.png',
-                                ),
-                                height: 280.0,
-                                width: 280.0,
-                              ),
-                            ),
-                            SizedBox(height: 15.0),
-                            const Text(
-                              'Apprenez aux côtés de professionnels phares',
+                              'Programmez tous vos trajets et vos destinations !',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 30,
@@ -150,9 +149,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ],
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: _buildPageIndicator(),
+                Padding(
+                  padding: EdgeInsets.only(top: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: _buildPageIndicator(),
+                  ),
                 ),
                 _currentPage != _numPages - 1
                     ? Expanded(

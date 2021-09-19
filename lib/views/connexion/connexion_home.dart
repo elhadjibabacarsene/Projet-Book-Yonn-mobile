@@ -165,6 +165,6 @@ class _InscriptionState extends State<ConnexionsHome> {
   }
 
   void navigateToAbonneMain() {
-    Navigator.pushNamed(context, '/abonne_center');
+    // Navigator.pushNamed(context, '/abonne_center');
   }
 }

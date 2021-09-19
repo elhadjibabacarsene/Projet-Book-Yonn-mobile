@@ -8,6 +8,7 @@ import 'package:book_yonn_mobile/views/inscriptions/components/steps/step5.dart'
 import 'package:flutter/material.dart';
 import 'components/steps/step2.dart';
 import 'inscriptions_form_steps.dart';
+import 'dart:io';
 
 InscriptionFormSteps inscriptionFormSteps = new InscriptionFormSteps();
 
@@ -25,7 +26,8 @@ class InscriptionsForm extends StatefulWidget {
   const InscriptionsForm({Key? key}) : super(key: key);
 
   @override
-  _InscriptionsFormState createState() => inscriptionsFormState = _InscriptionsFormState();
+  _InscriptionsFormState createState() =>
+      inscriptionsFormState = _InscriptionsFormState();
 }
 
 class InscriptionAbonneData {
@@ -40,6 +42,17 @@ class InscriptionAbonneData {
 }
 
 class _InscriptionsFormState extends State<InscriptionsForm> {
+  final firstNameController = TextEditingController();
+  final dateNaissController = TextEditingController();
+  final adressController = TextEditingController();
+  final numTelController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  final numeroPermisController = TextEditingController();
+  final numeroSerieVoiture = TextEditingController();
+  File? storeImageProfil;
+  File? storeImagePermis;
   Widget containerButtonSteps({title, bgColor, textColor, action}) {
     return Container(
       width: 158,
@@ -104,7 +117,81 @@ class _InscriptionsFormState extends State<InscriptionsForm> {
               .currentState
               ?.validate() ==
           true) {
-        inscriptionFormSteps.switchNextStep();
+        // switch validation
+        switch (inscriptionFormSteps.getNumberStep()) {
+          case 2:
+            if (step3state?.isSwitch0n == true) {
+              inscriptionFormSteps.switchNextStep();
+            } else {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                          title: Text('Conditions d\'utilisation'),
+                          content: Text(
+                              'Veuillez accepter les conditions d\'utilisation avant de continuer.'),
+                          actions: [
+                            TextButton(
+                                child: Text('D\'accord'),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                }),
+                          ]));
+            }
+            break;
+          case 3:
+            if (storeImageProfil!= null) {
+              inscriptionFormSteps.switchNextStep();
+            } else {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                          title: Text('Photo de profil'),
+                          content: Text(
+                              'Veuillez choisir une photo de profil avant de continuer.'),
+                          actions: [
+                            TextButton(
+                                child: Text('D\'accord'),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                }),
+                          ]));
+            }
+            break;
+            case 4:
+              if(inscriptionsFormState?.storeImagePermis != null) {
+                inscriptionFormSteps.switchNextStep();
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                          title: Text('Fin Build v0.0.1'),
+                          content: Text(
+                              'Aidez mes créateurs à m\'améliorer, en leurs donnant vos feedbacks ;-)\n\nA très bientôt pour de prochaines mises à jours.'),
+                          actions: [
+                            TextButton(
+                                child: Text('D\'accord'),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                }),
+                          ]));
+              }else{
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                          title: Text('Scanner permis'),
+                          content: Text(
+                              'Veuillez scanner votre permis avant de continuer.'),
+                          actions: [
+                            TextButton(
+                                child: Text('D\'accord'),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                }),
+                          ]));
+              }
+            break;
+          default:
+            inscriptionFormSteps.switchNextStep();
+        }
       }
     });
   }

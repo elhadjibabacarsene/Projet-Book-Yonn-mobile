@@ -21,6 +21,8 @@ class _Step1State extends State<Step1> {
 
   @override
   Widget build(BuildContext context) {
+
+    
     return Form(
       key: keyFormStep1,
       child: Column(
@@ -39,6 +41,7 @@ class _Step1State extends State<Step1> {
           ),
           CustomTextFormField(
             label: 'Prénom(s) et nom',
+            controller: inscriptionsFormState!.firstNameController,
             type: TextInputType.text,
             textInputAction: TextInputAction.next,
             onFieldSubmitted: (_) {

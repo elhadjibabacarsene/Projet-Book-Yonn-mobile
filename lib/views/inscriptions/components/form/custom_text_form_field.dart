@@ -10,13 +10,16 @@ class CustomTextFormField extends StatefulWidget {
   final Icon? prefixIcon;
   final Icon? suffixIcon;
   final String? prefixText;
+  final TextEditingController controller;
   final TextInputType? type;
   final FocusNode? focusNode;
-  final  readOnly;
+  final readOnly;
+  final onSaved;
   final TextInputAction? textInputAction;
   final onFieldSubmitted;
   final String? initialValue;
   final FormFieldValidator? validator;
+  final bool obscureText;
 
   const CustomTextFormField(
       {Key? key,
@@ -28,8 +31,11 @@ class CustomTextFormField extends StatefulWidget {
       this.textInputAction,
       this.onFieldSubmitted,
       this.readOnly = false,
+      this.onSaved,
       this.prefixText,
+      required this.controller,
       this.focusNode,
+      this.obscureText = false,
       this.type})
       : super(key: key);
 
@@ -38,16 +44,17 @@ class CustomTextFormField extends StatefulWidget {
 }
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
-  TextEditingController _controller = new TextEditingController();
   final DateFormat formatter = DateFormat('dd-MM-yyyy');
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return new TextFormField(
       validator: widget.validator,
-      controller: _controller,
+      controller: widget.controller,
       keyboardType: TextInputType.datetime,
       textInputAction: widget.textInputAction,
       onFieldSubmitted: widget.onFieldSubmitted,
+      obscureText: widget.obscureText,
+      onSaved: widget.onSaved,
       focusNode: widget.focusNode,
       readOnly: widget.readOnly,
       onTap: onTextFormFieldTaped,
@@ -92,7 +99,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         firstDate: firstDate,
         lastDate: lastDate);
     if (picked != null) {
-      _controller.text = formatter.format(picked).toString();
+      widget.controller?.text = formatter.format(picked).toString();
     }
   }
 

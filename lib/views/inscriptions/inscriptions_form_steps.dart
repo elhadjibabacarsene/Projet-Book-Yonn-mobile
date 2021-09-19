@@ -5,6 +5,8 @@ import 'package:book_yonn_mobile/views/inscriptions/components/steps/step3.dart'
 import 'package:book_yonn_mobile/views/inscriptions/components/steps/step4.dart';
 import 'package:book_yonn_mobile/views/inscriptions/components/steps/step5.dart';
 
+
+
 class InscriptionFormSteps {
   int _numberStep = 0;
 
