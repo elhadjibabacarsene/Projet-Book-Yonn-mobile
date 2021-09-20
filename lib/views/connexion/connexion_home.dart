@@ -70,11 +70,7 @@ class _InscriptionState extends State<ConnexionsHome> {
                     ),
                     recognizer: new TapGestureRecognizer()
                       ..onTap = () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => InscriptionsForm()),
-                        );
+                        navigateToInscriptionForm();
                       },
                   ),
                 ],
@@ -135,10 +131,10 @@ class _InscriptionState extends State<ConnexionsHome> {
             width: 305,
             height: 50,
             child: ButtonBig(
-              title: 'S\'inscrire avec un email',
+              title: 'Se connecter avec un email',
               bgColor: colorBlue,
               textColor: colorWhite,
-              action: navigateToInscriptionForm,
+              action: navigateToConnexionForm,
             ),
           ),
           SizedBox(
@@ -166,5 +162,9 @@ class _InscriptionState extends State<ConnexionsHome> {
 
   void navigateToAbonneMain() {
     // Navigator.pushNamed(context, '/abonne_center');
+  }
+
+  void navigateToConnexionForm() {
+    Navigator.pushNamed(context, '/connexion_form');
   }
 }

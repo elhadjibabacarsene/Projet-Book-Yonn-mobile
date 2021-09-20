@@ -21,7 +21,6 @@ class _Step3State extends State<Step3> {
   bool isSwitch0n = false;
   final FocusNode passwordFocus = FocusNode();
   final FocusNode confirmPasswordFocus = FocusNode();
-  
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +62,7 @@ class _Step3State extends State<Step3> {
                   return '\u26A0 Ce champs est obligatoire';
                 }
                 if (value.length < 8) {
-                  return '\u26A0 Le mot de passe doit contenir au moins 8 caractères';
+                  return '\u26A0 Au moins 8 caractères';
                 }
               }),
           SizedBox(
@@ -83,10 +82,11 @@ class _Step3State extends State<Step3> {
                 if (value.isEmpty) {
                   return '\u26A0 Ce champs est obligatoire';
                 }
-                if(inscriptionsFormState!.passwordController.text != value.toString()) {
+                if (inscriptionsFormState!.passwordController.text !=
+                    value.toString()) {
                   print(inscriptionsFormState!.passwordController.value);
                   print(value);
-                  return '\u26A0 Les deux mot de passe ne correspondent pas';
+                  return '\u26A0 Mot de passe incorrect';
                 }
                 return null;
               }),

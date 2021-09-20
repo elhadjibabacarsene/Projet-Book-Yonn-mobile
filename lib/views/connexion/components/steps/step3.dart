@@ -1,6 +1,7 @@
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:book_yonn_mobile/views/connexion/components/form/custom_text_form_field.dart';
 import 'package:book_yonn_mobile/views/connexion/components/form/message_text_form_field.dart';
+import 'package:book_yonn_mobile/views/inscriptions/inscriptions_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
@@ -12,8 +13,6 @@ class Step3 extends StatefulWidget {
 }
 
 class _Step3State extends State<Step3> {
-
-  bool isSwitch0n = false;
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +51,10 @@ class _Step3State extends State<Step3> {
           children: [
             FlutterSwitch(
               inactiveColor: colorGray,
-              value: isSwitch0n, onToggle: (value){
-                isSwitch0n = true;
+              value: inscriptionsFormState!.isSwitch0n, onToggle: (value){
+                inscriptionsFormState?.setState(() {
+                  inscriptionsFormState!.isSwitch0n ? inscriptionsFormState?.isSwitch0n = false : inscriptionsFormState?.isSwitch0n = true;
+                });
               }
             ),
             SizedBox(

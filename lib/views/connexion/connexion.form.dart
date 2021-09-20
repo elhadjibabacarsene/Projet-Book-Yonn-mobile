@@ -78,7 +78,7 @@ class _ConnexionsFormState extends State<ConnexionsForm> {
               title: 'Je me connecte',
               bgColor: Colors.blueAccent.shade700,
               textColor: colorWhite,
-              action: navigateToInscriptionForm,
+              action: navigateToAbonneCenter,
             ),
           ),
           SizedBox(
@@ -135,5 +135,9 @@ class _ConnexionsFormState extends State<ConnexionsForm> {
 
   void navigateToInscriptionForm() {
     Navigator.pushNamed(context, '/connexion_form');
+  }
+
+  void navigateToAbonneCenter() {
+    Navigator.pushNamed(context, '/abonne_center');
   }
 }

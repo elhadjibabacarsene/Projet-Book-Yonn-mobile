@@ -6,6 +6,7 @@ import 'package:book_yonn_mobile/views/inscriptions/inscriptions_form.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/abonne_center.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/navigation/navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,6 +26,14 @@ class MyApp extends StatelessWidget {
           '/demarrage': (context) => Demarrage(),
           '/map': (context) => MapSrceen(),
         },
-        debugShowCheckedModeBanner: false);
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate
+      ],
+      supportedLocales: [
+        const Locale('en'),
+        const Locale('fr')
+      ]
+        );
   }
 }

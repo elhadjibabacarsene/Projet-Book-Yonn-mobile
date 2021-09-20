@@ -50,7 +50,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return new TextFormField(
       validator: widget.validator,
       controller: widget.controller,
-      keyboardType: TextInputType.datetime,
+      keyboardType: widget.type,
       textInputAction: widget.textInputAction,
       onFieldSubmitted: widget.onFieldSubmitted,
       obscureText: widget.obscureText,
@@ -94,12 +94,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     final lastDate = DateTime.now();
     // show datepicker
     final DateTime? picked = await showDatePicker(
+        locale: const Locale('fr', 'FR'),
         context: context,
         initialDate: lastDate,
         firstDate: firstDate,
         lastDate: lastDate);
     if (picked != null) {
-      widget.controller?.text = formatter.format(picked).toString();
+      widget.controller.text = formatter.format(picked).toString();
     }
   }
 

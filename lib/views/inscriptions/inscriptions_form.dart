@@ -51,8 +51,10 @@ class _InscriptionsFormState extends State<InscriptionsForm> {
   final confirmPasswordController = TextEditingController();
   final numeroPermisController = TextEditingController();
   final numeroSerieVoiture = TextEditingController();
+  bool isSwitch0n = false;
   File? storeImageProfil;
   File? storeImagePermis;
+
   Widget containerButtonSteps({title, bgColor, textColor, action}) {
     return Container(
       width: 158,
@@ -139,8 +141,21 @@ class _InscriptionsFormState extends State<InscriptionsForm> {
             }
             break;
           case 3:
-            if (storeImageProfil!= null) {
-              inscriptionFormSteps.switchNextStep();
+            if (storeImageProfil != null) {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                          title: Text('Etape 1 validée !'),
+                          content: Text(
+                              'Parlons maintenant de votre voiture, lorsque vous serez en mode conduction'),
+                          actions: [
+                            TextButton(
+                                child: Text('D\'accord'),
+                                onPressed: () {
+                                  inscriptionFormSteps.switchNextStep();
+                                  Navigator.of(context).pop();
+                                }),
+                          ]));
             } else {
               showDialog(
                   context: context,
@@ -157,10 +172,10 @@ class _InscriptionsFormState extends State<InscriptionsForm> {
                           ]));
             }
             break;
-            case 4:
-              if(inscriptionsFormState?.storeImagePermis != null) {
-                inscriptionFormSteps.switchNextStep();
-                showDialog(
+          case 4:
+            if (inscriptionsFormState?.storeImagePermis != null) {
+              inscriptionFormSteps.switchNextStep();
+              showDialog(
                   context: context,
                   builder: (BuildContext context) => AlertDialog(
                           title: Text('Fin Build v0.0.1'),
@@ -168,13 +183,15 @@ class _InscriptionsFormState extends State<InscriptionsForm> {
                               'Aidez mes créateurs à m\'améliorer, en leurs donnant vos feedbacks ;-)\n\nA très bientôt pour de prochaines mises à jours.'),
                           actions: [
                             TextButton(
-                                child: Text('D\'accord'),
+                                child: Text('Se connecter'),
                                 onPressed: () {
                                   Navigator.of(context).pop();
+                                  Navigator.pushNamed(
+                                      context, '/connexion_form');
                                 }),
                           ]));
-              }else{
-                showDialog(
+            } else {
+              showDialog(
                   context: context,
                   builder: (BuildContext context) => AlertDialog(
                           title: Text('Scanner permis'),
@@ -187,7 +204,7 @@ class _InscriptionsFormState extends State<InscriptionsForm> {
                                   Navigator.of(context).pop();
                                 }),
                           ]));
-              }
+            }
             break;
           default:
             inscriptionFormSteps.switchNextStep();

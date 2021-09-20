@@ -1,6 +1,5 @@
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:book_yonn_mobile/views/connexion/components/buttons/container_button_step.dart';
-import 'package:book_yonn_mobile/views/inscriptions/components/buttons/button_big.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -98,7 +97,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(40.0),
+                        padding: EdgeInsets.all(30.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -112,7 +111,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                             ),
                             const Text(
-                              'Avec la localisation, votre conducteur vous retrouverez où que vous soyez !',
+                              'Avec la localisation, votre conducteur vous retrouvera où que vous soyez !',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 30,
