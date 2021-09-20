@@ -1,52 +1,90 @@
+import 'package:book_yonn_mobile/shared/styles/colors.dart';
+import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSearchConductor/card_search_conductor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MapSrceen extends StatefulWidget{
+class MapSrceen extends StatefulWidget {
   @override
-  _MapScreenState createState()=>_MapScreenState();
-
+  _MapScreenState createState() => _MapScreenState();
 }
-class _MapScreenState extends State<MapSrceen>{
+
+class _MapScreenState extends State<MapSrceen> {
+  bool searchConductor = false;
+  bool isVisibleSearchConductorCard = false;
+
   static const _initialCameraPosition = CameraPosition(
     target: LatLng(37.773972, -122.431297),
     zoom: 11.5,
   );
- late GoogleMapController _googleMapController;
+  late GoogleMapController _googleMapController;
   late Marker _origin;
   late Marker _destination;
- 
+
   @override
   void dispose() {
     _googleMapController.dispose();
     super.dispose();
   }
+
   @override
-  Widget build(BuildContext context){
-    var destination ;
+  Widget build(BuildContext context) {
+    var destination;
     var _origin;
-  
-  
-    return Container(
-      child:GoogleMap(
-        myLocationButtonEnabled: false,
-        zoomControlsEnabled: false,
-        initialCameraPosition: _initialCameraPosition,
-        onMapCreated: (controller)=>_googleMapController=controller,
-         markers: {
-              if (_origin != null) _origin,
-              if (destination != null) _destination
-            },
-             onLongPress: _addMarker,
-      ),
+
+    return Stack(
+      children: [
+        GoogleMap(
+          myLocationButtonEnabled: false,
+          zoomControlsEnabled: false,
+          initialCameraPosition: _initialCameraPosition,
+          onMapCreated: (controller) => _googleMapController = controller,
+          markers: {
+            if (_origin != null) _origin,
+            if (destination != null) _destination
+          },
+          onLongPress: _addMarker,
+        ),
+        //Search conductor card
+        CardSearchConductor(isVisible: isVisibleSearchConductorCard),
+        // Search conductor
+        Padding(
+          padding:
+              const EdgeInsets.symmetric(vertical: 160.0, horizontal: 15.0),
+          child: Align(
+            alignment: Alignment.bottomRight,
+            child: FloatingActionButton(
+                backgroundColor: colorDarkGray,
+                child: Icon(
+                    searchConductor == false
+                        ? Icons.drive_eta_outlined
+                        : Icons.close,
+                    size: 30.0,
+                    color: colorWhite),
+                onPressed: searchConductorCliked),
+          ),
+        ),
+        // Localization
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 90.0, horizontal: 15.0),
+          child: Align(
+            alignment: Alignment.bottomRight,
+            child: FloatingActionButton(
+                backgroundColor: colorWhite,
+                child: Icon(Icons.my_location_outlined,
+                    size: 30.0, color: colorBlue),
+                onPressed: null),
+          ),
+        ),
+      ],
     );
   }
-  void _addMarker(LatLng pos){ 
 
+  void _addMarker(LatLng pos) {
     var other;
     other = null;
     if (_origin == other || (_origin != other && _destination != other)) {
- setState(() {
+      setState(() {
         _origin = Marker(
           markerId: const MarkerId('origin'),
           infoWindow: const InfoWindow(title: 'Origin'),
@@ -54,10 +92,9 @@ class _MapScreenState extends State<MapSrceen>{
               BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
           position: pos,
         );
-        
       });
-    } else{
-        setState(() {
+    } else {
+      setState(() {
         _destination = Marker(
           markerId: const MarkerId('destination'),
           infoWindow: const InfoWindow(title: 'Destination'),
@@ -66,5 +103,15 @@ class _MapScreenState extends State<MapSrceen>{
         );
       });
     }
-}
+  }
+
+  // when search conductor button clicked
+  void searchConductorCliked() {
+    setState(() {
+      searchConductor ? searchConductor = false : searchConductor = true;
+      isVisibleSearchConductorCard
+          ? isVisibleSearchConductorCard = false
+          : isVisibleSearchConductorCard = true;
+    });
+  }
 }
