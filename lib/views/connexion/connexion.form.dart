@@ -49,10 +49,6 @@ class _ConnexionsFormState extends State<ConnexionsForm> {
             height: 60,
             child: CustomTextFormField(label: 'Email'),
           ),
-
-          // Container(
-          //         height: 40,
-          //    child: MessageTextFormField(message: 'Message d\'erreur', typeMessage: 'error',),),
           SizedBox(
             height: 35,
           ),
@@ -78,7 +74,7 @@ class _ConnexionsFormState extends State<ConnexionsForm> {
               title: 'Je me connecte',
               bgColor: Colors.blueAccent.shade700,
               textColor: colorWhite,
-              action: navigateToAbonneCenter,
+              action: _navigateToAbonneCenter,
             ),
           ),
           SizedBox(
@@ -137,7 +133,7 @@ class _ConnexionsFormState extends State<ConnexionsForm> {
     Navigator.pushNamed(context, '/connexion_form');
   }
 
-  void navigateToAbonneCenter() {
-    Navigator.pushNamed(context, '/abonne_center');
+  Future<void> _navigateToAbonneCenter() async{
+    await Navigator.pushNamed(context, '/abonne_center');
   }
 }

@@ -1,10 +1,11 @@
+import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSearchConductor/pagesCardSearchConductor/trajet.dart';
 import 'package:flutter/material.dart';
 
 class CardSearchConductorSteps {
   int _numberStepConductor = 0;
 
   List<Widget> stepsConductor = [
-    Text('Traject'),
+    Trajet(),
     Text('Prix'),
   ];
 
@@ -30,7 +31,7 @@ class CardSearchConductorSteps {
   }
 
   Widget getCurrentStepConductor() {
-    return stepsConductor[_numberStepConductor];
+    return stepsConductor[0];
   }
 
   int getLastIndexOfStepConductor() {

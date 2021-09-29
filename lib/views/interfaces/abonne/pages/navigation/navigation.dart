@@ -3,15 +3,26 @@ import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSe
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 
-class MapSrceen extends StatefulWidget {
+class MapScreen extends StatefulWidget {
   @override
   _MapScreenState createState() => _MapScreenState();
 }
 
-class _MapScreenState extends State<MapSrceen> {
+class _MapScreenState extends State<MapScreen> {
   bool searchConductor = false;
   bool isVisibleSearchConductorCard = false;
+
+  Future _getCurrentUserLocation() async {
+    final locData = await Location().getLocation();
+    print(locData.latitude);
+    print(locData.longitude);
+    return CameraPosition(
+      target: LatLng(37.773972, -122.431297),
+      zoom: 11.5,
+    );
+  }
 
   static const _initialCameraPosition = CameraPosition(
     target: LatLng(37.773972, -122.431297),
@@ -54,6 +65,7 @@ class _MapScreenState extends State<MapSrceen> {
           child: Align(
             alignment: Alignment.bottomRight,
             child: FloatingActionButton(
+                heroTag: null,
                 backgroundColor: colorDarkGray,
                 child: Icon(
                     searchConductor == false
@@ -70,10 +82,11 @@ class _MapScreenState extends State<MapSrceen> {
           child: Align(
             alignment: Alignment.bottomRight,
             child: FloatingActionButton(
+                heroTag: null,
                 backgroundColor: colorWhite,
                 child: Icon(Icons.my_location_outlined,
                     size: 30.0, color: colorBlue),
-                onPressed: null),
+                onPressed: _getCurrentUserLocation),
           ),
         ),
       ],

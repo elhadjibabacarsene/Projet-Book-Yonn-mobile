@@ -27,7 +27,7 @@ class _Step4State extends State<Step4> {
     setState(() {
       if (imageFile != null) {
         inscriptionsFormState?.setState(() {
-          inscriptionsFormState?.storeImageProfil = File(imageFile.path);;
+          inscriptionsFormState?.storeImageProfil = File(imageFile.path);
         });
       }
     });

@@ -1,7 +1,6 @@
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:book_yonn_mobile/views/inscriptions/inscriptions_form.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class TopBar extends StatefulWidget {
   const TopBar({Key? key}) : super(key: key);

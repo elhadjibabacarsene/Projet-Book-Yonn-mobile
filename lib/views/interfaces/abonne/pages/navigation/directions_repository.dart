@@ -2,7 +2,6 @@ import 'package:book_yonn_mobile/views/interfaces/abonne/pages/navigation/direct
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:book_yonn_mobile/helpers/env.dart';
-import 'package:book_yonn_mobile/views/interfaces/abonne/pages/navigation/directions_repository.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class DirectionsRepository {

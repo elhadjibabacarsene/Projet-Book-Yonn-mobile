@@ -3,7 +3,6 @@ import 'package:book_yonn_mobile/views/connexion/components/buttons/button_big.d
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'components/buttons/button_social_inscription.dart';
-import 'package:book_yonn_mobile/views/inscriptions/inscriptions_form.dart';
 
 class ConnexionsHome extends StatefulWidget {
   const ConnexionsHome({Key? key}) : super(key: key);

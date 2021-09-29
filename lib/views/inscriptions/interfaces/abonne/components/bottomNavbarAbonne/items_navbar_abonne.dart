@@ -25,7 +25,6 @@ class ItemsNavBarAbonne extends State<StatefulWidget>
     super.dispose();
   }
 
-  @override
   ItemsNavBarAbonne createState() => itemsNavBarAbonne = ItemsNavBarAbonne();
 
   List<BottomNavyBarItem> get itemsAbonne => [
@@ -73,6 +72,7 @@ class ItemsNavBarAbonne extends State<StatefulWidget>
 
   @override
   Widget build(BuildContext context) {
+    // ignore: todo
     // TODO: implement build
     throw UnimplementedError();
   }

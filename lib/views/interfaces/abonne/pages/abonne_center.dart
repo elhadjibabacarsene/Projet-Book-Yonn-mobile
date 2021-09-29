@@ -1,7 +1,7 @@
-import 'package:book_yonn_mobile/views/inscriptions/interfaces/abonne/components/bottomNavbarAbonne/buildBottomNavBar.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/components/menuBottom/menu_bottom.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/components/topBar/top_bar.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/navigation/navigation.dart';
+import 'package:book_yonn_mobile/views/interfaces/abonne/pages/navpage/navpage.dart';
 import 'package:flutter/material.dart';
 
 class AbonneCenter extends StatefulWidget {
@@ -15,10 +15,7 @@ class _AbonneCenterState extends State<AbonneCenter> {
   int _selectedIndex = 0;
 
   List<Widget> _pagesAbonne = [
-    MapSrceen(),
-    Center(
-      child: Text('Page Navigation'),
-    ),
+    NavPage(),
     Center(
       child: Text('Page Profil'),
     ),

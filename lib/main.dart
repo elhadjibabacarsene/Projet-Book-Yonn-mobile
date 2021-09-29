@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           '/connexion_form': (context) => ConnexionsForm(),
           '/connexion_home': (context) => ConnexionsHome(),
           '/demarrage': (context) => Demarrage(),
-          '/map': (context) => MapSrceen(),
+          '/map': (context) => MapScreen(),
         },
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [

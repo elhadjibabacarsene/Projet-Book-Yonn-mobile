@@ -1,5 +1,4 @@
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
-import 'package:book_yonn_mobile/views/connexion/components/buttons/button_big.dart';
 import 'package:book_yonn_mobile/views/connexion/components/buttons/container_button_step.dart';
 import 'package:flutter/material.dart';
 import 'brain_color_car.dart';
