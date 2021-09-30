@@ -1,3 +1,4 @@
+import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,13 @@ class Itinerary extends StatefulWidget {
 }
 
 class _ItineraryState extends State<Itinerary> {
+  List<String> _itinerary = ['Nationale', '  Péage  '];
+  int _indexButtonClicked = 0;
+  Color _defautTextColor = colorBlack;
+  Color _selectedTextColor = colorWhite;
+  Color _defautBackgroundColor = Colors.transparent;
+  Color _selectedBackgroundColor = colorBlack;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,28 +30,58 @@ class _ItineraryState extends State<Itinerary> {
               fontSize: 15.0,
               fontFamily: 'SF Pro Display Regular'),
         ),
-        SizedBox(height: 60.0),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            getButtonItinerary('Nationale', null),
-            getButtonItinerary('  Péage  ', null)
-          ],
-        ),
+        SizedBox(height: 80.0),
+        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          for (var i = 0; i < _itinerary.length; i++)
+            getButtonItinerary(_itinerary[i], i),
+        ]),
       ]),
     );
   }
 
-  OutlinedButton getButtonItinerary(String text, VoidCallback? onPressed) {
+  Widget getButtonItinerary(String text, int id) {
     return OutlinedButton(
-        onPressed: onPressed,
+        onPressed: (){
+          setState(() {
+            _indexButtonClicked = id;
+          });
+        },
         child: Text(
           text,
-          style: TextStyle(color: colorBlack),
+          style: TextStyle(color: _indexButtonClicked == id ? colorWhite : colorBlack),
         ),
         style: OutlinedButton.styleFrom(
+          backgroundColor: _indexButtonClicked == id ? colorBlack : Colors.transparent,
           padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
           side: BorderSide(width: 2.0, color: colorBlack),
         ));
   }
+
+  // reset buttons itinerary colors
+  void resetColorButton() {
+    setState(() {
+      _defautTextColor = colorBlack;
+      _defautBackgroundColor = Colors.transparent;
+    });
+  }
+
+  VoidCallback? getOnPressed(String text) {
+    if (text == 'Nationale') {}
+  }
 }
+
+
+/* CustomRadioButton(
+            elevation: 0.0,
+            buttonValues: ['nationale', 'peage'],
+            buttonLables: ['Nationale', 'Péages'],
+            unSelectedBorderColor: colorBlack,
+            buttonTextStyle: ButtonTextStyle(
+                selectedColor: Colors.white,
+                unSelectedColor: Colors.black,
+                textStyle: TextStyle(fontSize: 14)),
+            radioButtonValue: (value) {
+              print(value);
+            },
+            selectedColor: colorBlue,
+            unSelectedColor: Colors.transparent) */
