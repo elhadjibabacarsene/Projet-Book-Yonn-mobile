@@ -1,6 +1,5 @@
 import 'package:book_yonn_mobile/views/interfaces/abonne/components/menuBottom/menu_bottom.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/components/topBar/top_bar.dart';
-import 'package:book_yonn_mobile/views/interfaces/abonne/pages/navigation/navigation.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/navpage/navpage.dart';
 import 'package:flutter/material.dart';
 
@@ -36,6 +35,7 @@ class _AbonneCenterState extends State<AbonneCenter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       extendBody: true,
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60), child: TopBar()),
