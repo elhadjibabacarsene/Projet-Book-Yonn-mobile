@@ -1,3 +1,4 @@
+import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSearchConductor/pagesCardSearchConductor/itinerary.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSearchConductor/pagesCardSearchConductor/number_travelers.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSearchConductor/pagesCardSearchConductor/price.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSearchConductor/pagesCardSearchConductor/trajet.dart';
@@ -10,6 +11,7 @@ class CardSearchConductorSteps {
     Trajet(),
     Price(),
     NumberTravelers(),
+    Itinerary(),
   ];
 
   int getNumberStepConductor() {

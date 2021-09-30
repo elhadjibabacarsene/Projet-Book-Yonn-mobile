@@ -33,7 +33,7 @@ class _NumberTravelersState extends State<NumberTravelers> {
             padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 60),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [for (int i = 0; i < 5; i++) getNumberOfTravelers(i)],
+              children: [for (int i = 0; i < _numberOfTravelers; i++) getNumberOfTravelers(i)],
             ),
           ),
         ],
