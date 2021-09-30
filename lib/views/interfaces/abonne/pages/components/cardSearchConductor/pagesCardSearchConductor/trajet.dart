@@ -10,6 +10,7 @@ class Trajet extends StatefulWidget {
 }
 
 class _TrajetState extends State<Trajet> {
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -87,12 +88,37 @@ class _TrajetState extends State<Trajet> {
           ),
           // Buttons position and choice in map
           Padding(
-            padding: const EdgeInsets.only(left: 30.0),
+            padding: const EdgeInsets.fromLTRB(30.0, 0, 0, 10),
             child: Column(children: [
-              getPoseChoiceMapButton('Ma position', Icons.my_location_outlined, null),
-              SizedBox(height: 15.0,),
-              getPoseChoiceMapButton('Choisir sur la map', Icons.explore_outlined, null),
+              getPoseChoiceMapButton(
+                  'Ma position', Icons.my_location_outlined, null),
+              SizedBox(
+                height: 15.0,
+              ),
+              getPoseChoiceMapButton(
+                  'Choisir sur la map', Icons.explore_outlined, null),
             ]),
+          ),
+          Visibility(
+            visible: false,
+            child: Padding(
+                padding: const EdgeInsets.only(left: 30.0),
+                child: Column(children: [
+                  Row(
+                    children: [
+                      Text('Récente', style: getTextStyleButtonPosChoice()),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      getTextRecente('Rufisque'),
+                      SizedBox(width: 20.0,),
+                      getTextRecente('>'),
+                      SizedBox(width: 20.0,),
+                      getTextRecente('Grand yoff'),
+                    ],
+                  ),
+                ])),
           ),
         ],
       ),
@@ -118,7 +144,8 @@ class _TrajetState extends State<Trajet> {
 
   // Icon(Icons.my_location_outlined, color: colorBlue, size: 16)
 
-  Widget getPoseChoiceMapButton(String title, IconData suffixIcon, VoidCallback? onPressed) {
+  Widget getPoseChoiceMapButton(
+      String title, IconData suffixIcon, VoidCallback? onPressed) {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
@@ -128,14 +155,26 @@ class _TrajetState extends State<Trajet> {
             SizedBox(width: 5),
             Text(
               title,
-              style: TextStyle(
-                color: colorBlack,
-                fontWeight: FontWeight.w500,
-              ),
+              style: getTextStyleButtonPosChoice(),
             )
           ],
         ),
       ),
     );
+  }
+
+  TextStyle getTextStyleButtonPosChoice() {
+    return TextStyle(
+      color: colorBlack,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  Text getTextRecente(String title) {
+    return Text(title,
+        style: TextStyle(
+          color: colorLightGray,
+          fontSize: 12,
+        ));
   }
 }
