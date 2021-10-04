@@ -1,5 +1,6 @@
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSearchConductor/pagesCardSearchConductor/itinerary.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSearchConductor/pagesCardSearchConductor/number_travelers.dart';
+import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSearchConductor/pagesCardSearchConductor/payment_mode.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSearchConductor/pagesCardSearchConductor/price.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSearchConductor/pagesCardSearchConductor/trajet.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class CardSearchConductorSteps {
     Price(),
     NumberTravelers(),
     Itinerary(),
+    PaymentMode(),
   ];
 
   int getNumberStepConductor() {
