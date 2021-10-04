@@ -1,3 +1,7 @@
+import 'dart:ui';
+
+import 'package:book_yonn_mobile/shared/components/animatedLoader.dart';
+import 'package:book_yonn_mobile/shared/components/preloader.dart';
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -85,6 +89,13 @@ class _NavPageState extends State<NavPage> {
               child: Icon(Icons.my_location_outlined,
                   size: 30.0, color: colorBlue),
               onPressed: _getCurrentUserLocation),
+        ),
+      ),
+      BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+        child: Container(
+          color: Colors.transparent,
+          child: Preloader(),
         ),
       ),
     ]);
