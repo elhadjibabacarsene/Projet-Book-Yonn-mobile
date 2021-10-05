@@ -2,11 +2,14 @@ import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/shared/buttonText/button_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 import 'card_search_conductor_steps.dart';
 
 CardSearchConductorSteps cardSearchConductorSteps =
     new CardSearchConductorSteps();
+
+List<GlobalKey<FormState>> FormsKeys = [
+  keyFormStep1,
+];
 
 class CardSearchConductor extends StatefulWidget {
   final bool isVisible;
@@ -19,6 +22,11 @@ class CardSearchConductor extends StatefulWidget {
 }
 
 class _CardSearchConductorState extends State<CardSearchConductor> {
+
+  final departController = TextEditingController();
+  final arriveController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return AnimatedOpacity(

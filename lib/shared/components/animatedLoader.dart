@@ -26,11 +26,11 @@ class _AnimatedLoaderState extends State<AnimatedLoader>
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        getCircleAvatar(10),
-        SizedBox(width: 40),
-        getCircleAvatar(20),
-        SizedBox(width: 40),
-        getCircleAvatar(10),
+        getCircleAvatar(12),
+        SizedBox(width: 38),
+        getCircleAvatar(18),
+        SizedBox(width: 38),
+        getCircleAvatar(12),
       ],
     );
   }

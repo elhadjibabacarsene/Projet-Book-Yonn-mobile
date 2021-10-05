@@ -1,6 +1,4 @@
 import 'dart:ui';
-
-import 'package:book_yonn_mobile/shared/components/animatedLoader.dart';
 import 'package:book_yonn_mobile/shared/components/preloader.dart';
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +7,11 @@ import 'package:location/location.dart';
 import 'package:book_yonn_mobile/views/interfaces/abonne/pages/components/cardSearchConductor/card_search_conductor.dart';
 import 'package:book_yonn_mobile/model/place.dart';
 
+
+
 class NavPage extends StatefulWidget {
   final PlaceLocation initialLocation;
+  final searchingConductor = false;
 
   const NavPage(
       {Key? key,

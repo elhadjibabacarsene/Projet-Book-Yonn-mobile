@@ -1,6 +1,12 @@
 import 'package:book_yonn_mobile/shared/styles/colors.dart';
+import 'package:book_yonn_mobile/shared/validators/validators.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
+
+
+GlobalKey<FormState> keyFormStep1 = GlobalKey<FormState>();
+
+Validators validators = new Validators();
 
 class Trajet extends StatefulWidget {
   const Trajet({Key? key}) : super(key: key);
@@ -127,6 +133,8 @@ class _TrajetState extends State<Trajet> {
 
   Widget getInputNavigation(String label) {
     return TextFormField(
+      validator: (value){
+      },
       decoration: InputDecoration(
           suffixIcon: Icon(
             Icons.close,
