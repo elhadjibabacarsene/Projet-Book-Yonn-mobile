@@ -7,10 +7,6 @@ import 'card_search_conductor_steps.dart';
 CardSearchConductorSteps cardSearchConductorSteps =
     new CardSearchConductorSteps();
 
-List<GlobalKey<FormState>> FormsKeys = [
-  keyFormStep1,
-];
-
 class CardSearchConductor extends StatefulWidget {
   final bool isVisible;
 
