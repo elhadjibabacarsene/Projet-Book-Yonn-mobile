@@ -3,8 +3,7 @@ import 'package:book_yonn_mobile/shared/validators/validators.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-
-GlobalKey<FormState> keyFormStep1 = GlobalKey<FormState>();
+GlobalKey<FormState> keyFormTrajetStep = GlobalKey<FormState>();
 
 Validators validators = new Validators();
 
@@ -16,7 +15,6 @@ class Trajet extends StatefulWidget {
 }
 
 class _TrajetState extends State<Trajet> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -118,9 +116,13 @@ class _TrajetState extends State<Trajet> {
                   Row(
                     children: [
                       getTextRecente('Rufisque'),
-                      SizedBox(width: 20.0,),
+                      SizedBox(
+                        width: 20.0,
+                      ),
                       getTextRecente('>'),
-                      SizedBox(width: 20.0,),
+                      SizedBox(
+                        width: 20.0,
+                      ),
                       getTextRecente('Grand yoff'),
                     ],
                   ),
@@ -133,7 +135,10 @@ class _TrajetState extends State<Trajet> {
 
   Widget getInputNavigation(String label) {
     return TextFormField(
-      validator: (value){
+      validator: (value) {
+        if (value!.isEmpty) {
+          return '\u26A0 Ce champs est obligatoire';
+        }
       },
       decoration: InputDecoration(
           suffixIcon: Icon(

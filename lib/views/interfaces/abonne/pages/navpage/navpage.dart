@@ -92,11 +92,14 @@ class _NavPageState extends State<NavPage> {
               onPressed: _getCurrentUserLocation),
         ),
       ),
-      BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-        child: Container(
-          color: Colors.transparent,
-          child: Preloader(),
+      Visibility(
+        visible: false,
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+          child: Container(
+            color: Colors.transparent,
+            child: Preloader(),
+          ),
         ),
       ),
     ]);
